@@ -1,0 +1,32 @@
+# Normalize line endings (convert CRLF to LF)
+* text=auto
+*.cs       text diff=csharp
+*.cshtml   text diff=html
+*.csx      text diff=csharp
+*.sln      text eol=crlf
+*.csproj   text eol=crlf
+*.bat      eol=crlf
+*.ps1      text eol=lf
+*.ps1x     text eol=lf
+*.psm1     text eol=lf
+*.psd1     text eol=lf
+*.ps1xml   text eol=lf
+*.pssc     text eol=lf
+*.psrc     text eol=lf
+*.cdxml    text eol=lf
+*.sh       text eol=lf
+
+# Include markdown files in GitHub statistics
+*.md linguist-detectable
+
+# Set custom merge and diff behavior for certain files
+*.json merge=union
+*.lock binary
+
+# Prevent Git from treating certain files as text
+*.png binary
+*.jpg binary
+
+# Mark language-specific files as binary
+*.dll binary
+*.exe binary
