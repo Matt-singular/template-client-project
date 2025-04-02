@@ -48,7 +48,6 @@ public static class StartupExtensions
     return services;
   }
 
-
   public static IServiceCollection AddCommonLogging(this IServiceCollection services, IConfiguration configuration)
   {
     LoggerConfiguration loggerConfig = new LoggerConfiguration()
@@ -56,7 +55,6 @@ public static class StartupExtensions
     .ReadFrom.Configuration(configuration);
 
     Log.Logger = loggerConfig.CreateLogger();
-    Log.Information("🚀 Logging initialised successfully!");
 
     return services;
   }
