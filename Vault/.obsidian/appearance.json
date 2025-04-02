@@ -1,5 +1,8 @@
 {
   "accentColor": "",
   "baseFontSize": 23,
-  "cssTheme": ""
+  "cssTheme": "",
+  "enabledCssSnippets": [
+    "hide-markdown-title"
+  ]
 }

@@ -6,7 +6,7 @@
   "propertiesInDocument": "hidden",
   "newLinkFormat": "relative",
   "newFileLocation": "current",
-  "attachmentFolderPath": "Automation, Scripts & Templates/Attachments",
+  "attachmentFolderPath": "./Attachments",
   "userIgnoreFilters": [
     "Programming/Projects/",
     "Personal/"
