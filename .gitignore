@@ -417,4 +417,4 @@ FodyWeavers.xsd
 # Code Coverage
 # ===============================================
 
-CodeCoverage/Report/*
+Automation/CodeCoverage/Report/*
