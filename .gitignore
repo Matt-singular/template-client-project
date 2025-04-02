@@ -412,3 +412,9 @@ FodyWeavers.xsd
 .obsidian/themes
 .obsidian/workspace.json
 .trash/
+
+# ===============================================
+# Code Coverage
+# ===============================================
+
+CodeCoverage/Report/*
