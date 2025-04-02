@@ -18,11 +18,15 @@
     <PackageVersion Include="Microsoft.Maui.Controls" Version="8.0.3" />
     <PackageVersion Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.3" />
     <PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
   </ItemGroup>
 
   <!-- ThirdParty Packages -->
   <ItemGroup>
+    <PackageVersion Include="Serilog.AspNetCore" Version="8.0.3" />
+    <PackageVersion Include="Serilog.Extensions.Hosting" Version="8.0.0" />
+    <PackageVersion Include="Serilog.Settings.Configuration" Version="8.0.4" />
+    <PackageVersion Include="Serilog.Sinks.Console" Version="6.0.0" />
+    <PackageVersion Include="Serilog.Sinks.MSSqlServer" Version="8.1.0" />
     <PackageVersion Include="Swashbuckle.AspNetCore" Version="7.1.0" />
   </ItemGroup>
 
