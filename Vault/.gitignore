@@ -1,0 +1,5 @@
+# Obsidian-specific files & folders to ignore
+.obsidian/icons
+.obsidian/themes
+.obsidian/workspace.json
+.trash/
