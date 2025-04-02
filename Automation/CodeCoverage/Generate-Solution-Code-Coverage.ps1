@@ -4,11 +4,10 @@ $rootPath = Resolve-Path "$scriptPath\..\..\" # Root
 $powerShellModulesPath = Resolve-Path "$scriptPath\..\PowerShellModules" # Automation\PowerShellModules
 $coverageReport = Resolve-Path (Join-Path $scriptPath "Report") # Automation\CodeCoverage\Report
 
-
 # Import PowerShell Modules
 Import-Module (Resolve-Path "$powerShellModulesPath\CodeCoverageModule.psm1")
 
-# List of solutions and/or projects to pull code coverage for
+# List of solutions and/or project to pull code coverage for
 $solutions = @(
     @{ Name = "Applications"; Path = (Resolve-Path "$rootPath") }
 )
