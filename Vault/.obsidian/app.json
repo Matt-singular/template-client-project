@@ -7,10 +7,7 @@
   "newLinkFormat": "relative",
   "newFileLocation": "current",
   "attachmentFolderPath": "./Attachments",
-  "userIgnoreFilters": [
-    "Programming/Projects/",
-    "Personal/"
-  ],
+  "userIgnoreFilters": [],
   "pdfExportSettings": {
     "includeName": true,
     "pageSize": "A4",
