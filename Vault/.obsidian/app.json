@@ -1,0 +1,20 @@
+{
+  "showUnsupportedFiles": true,
+  "useMarkdownLinks": true,
+  "alwaysUpdateLinks": true,
+  "trashOption": "local",
+  "propertiesInDocument": "hidden",
+  "newLinkFormat": "relative",
+  "newFileLocation": "current",
+  "attachmentFolderPath": "./Attachments",
+  "userIgnoreFilters": [],
+  "pdfExportSettings": {
+    "includeName": true,
+    "pageSize": "A4",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  },
+  "readableLineLength": false,
+  "strictLineBreaks": false
+}
