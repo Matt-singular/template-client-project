@@ -408,20 +408,20 @@ FodyWeavers.xsd
 # ===============================================
 
 # Obsidian files to exclude
-.obsidian/*
-.trash
+Vault/.obsidian/*
+Vault/.trash
 
 # Obsidian files to include
-!.obsidian/app.json
-!.obsidian/appearance.json
-!.obsidian/core-plugins.json
-!.obsidian/hotkeys.json
-!.obsidian/snippets
-!.obsidian/templates.json
+!Vault/.obsidian/app.json
+!Vault/.obsidian/appearance.json
+!Vault/.obsidian/core-plugins.json
+!Vault/.obsidian/hotkeys.json
+!Vault/.obsidian/snippets
+!Vault/.obsidian/templates.json
 
 # Obsidian community plugins
-!.obsidian/community-plugins.json
-!.obsidian/plugins
+!Vault/.obsidian/community-plugins.json
+!Vault/.obsidian/plugins
 
 # ===============================================
 # Code Coverage
