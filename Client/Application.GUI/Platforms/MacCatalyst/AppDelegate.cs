@@ -1,10 +1,11 @@
-﻿namespace Application.GUI
-{
-  using Foundation;
+#pragma warning disable
+namespace Application.GUI;
 
-  [Register("AppDelegate")]
-  public class AppDelegate : MauiUIApplicationDelegate
-  {
-    protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
-  }
+using Foundation;
+
+[Register("AppDelegate")]
+public class AppDelegate : MauiUIApplicationDelegate
+{
+  protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
 }
+#pragma warning restore
