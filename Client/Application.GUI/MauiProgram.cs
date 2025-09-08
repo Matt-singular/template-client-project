@@ -1,8 +1,6 @@
-﻿namespace Application.GUI;
+namespace Application.GUI;
 
 using Common.Shared.Extensions;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 public static class MauiProgram
 {
@@ -11,7 +9,8 @@ public static class MauiProgram
     var builder = MauiApp.CreateBuilder();
 
     // Configurations
-    builder.Configuration.AddCommonAppSettings();
+    string environmentName = GetEnvironmentName();
+    builder.Configuration.AddCommonAppSettings(environmentName);
     builder.Services.ConfigureCommonSettings(builder.Configuration);
 
     // Dependency Injection
@@ -39,5 +38,14 @@ public static class MauiProgram
     services.AddSingleton<MainPage>();
 
     return services;
+  }
+
+  private static string GetEnvironmentName()
+  {
+#if DEBUG
+    return "Development";
+#else
+    return "Production";
+#endif
   }
 }

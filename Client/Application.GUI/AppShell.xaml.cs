@@ -1,4 +1,4 @@
-﻿namespace Application.GUI;
+namespace Application.GUI;
 
 public partial class AppShell : Shell
 {

@@ -418,6 +418,7 @@ Vault/.trash
 !Vault/.obsidian/hotkeys.json
 !Vault/.obsidian/snippets
 !Vault/.obsidian/templates.json
+!Vault/Audits/Releases/
 
 # Obsidian community plugins
 !Vault/.obsidian/community-plugins.json
@@ -428,3 +429,11 @@ Vault/.trash
 # ===============================================
 
 Automation/CodeCoverage/Report/*
+
+# ===============================================
+# .NET Project
+# ===============================================
+
+# AppSettings
+
+appsettings.Development.json

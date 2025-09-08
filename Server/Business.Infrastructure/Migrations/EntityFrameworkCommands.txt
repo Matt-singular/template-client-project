@@ -1,0 +1,13 @@
+// TO GENERATE A PRODUCT MIGRATION
+
+dotnet ef migrations add InitialMigration --project .\Server\Business.Infrastructure\ --context AppDbContext -o Migrations/Product
+
+dotnet ef migrations add InitialMigrationWithStartup --project Business.Infrastructure --startup-project Application.API --context AppDbContext -o Migrations/Product
+
+// TO APPLY THE MIGRATIONS TO THE DATABASE
+
+dotnet ef database update --project .\Server\Business.Infrastructure\ --context AppDbContext
+
+// Format Migrations
+
+dotnet format --include-generated
