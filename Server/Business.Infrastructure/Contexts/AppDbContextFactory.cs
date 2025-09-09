@@ -19,8 +19,10 @@ public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
   private static string GetConnectionString()
   {
     IConfigurationRoot configuration = new ConfigurationBuilder()
-      .SetBasePath(Directory.GetCurrentDirectory())
-      .AddJsonFile("appsettings.Development.json")
+      .SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "..", "Application.API"))
+      .AddJsonFile("appsettings.json", optional: true)
+      .AddJsonFile("appsettings.Development.json", optional: true)
+      .AddEnvironmentVariables()
       .Build();
 
     return configuration.TryGetConnectionString(ApplicationConstants.MainDatabaseConnectionStringName);
