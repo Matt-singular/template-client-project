@@ -6,8 +6,10 @@
   "propertiesInDocument": "hidden",
   "newLinkFormat": "relative",
   "newFileLocation": "current",
-  "attachmentFolderPath": "./Attachments",
-  "userIgnoreFilters": [],
+  "attachmentFolderPath": "Attachments",
+  "userIgnoreFilters": [
+    "Attachments/"
+  ],
   "pdfExportSettings": {
     "includeName": true,
     "pageSize": "A4",
