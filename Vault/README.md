@@ -1,68 +1,63 @@
-# Documentation Structure
+## Documentation Structure
 
-<!-- Audits Section --->
 <details>
 <summary>Audits</summary>
-  
-- **Incidents** - Incident reports
-- **Releases** - Release notes
-- **Requests** - Approved access control requests
-  
+<ul>
+<li><b>Incidents</b> - Incident reports</li>
+<li><b>Releases</b> - Release notes</li>
+<li><b>Requests</b> - Approved access control requests</li>
+</ul>
 </details>
 
-<!-- BusinessContext Section --->
 <details>
-<summary>BusinessContext</summary>
-
-- **Glossary** - Terms and definitions
-- **Processes** - Key business workflows
-- **Concepts** - High-level business concepts, rules, or models
-
+<summary>Business Context</summary>
+<ul>
+<li><b>Glossary</b> - Terms and definitions</li>
+<li><b>Processes</b> - Key business workflows</li>
+<li><b>Concepts</b> - High-level business concepts, rules, or models</li>
+</ul>
 </details>
 
-
-<!-- Onboarding Section --->
 <details>
 <summary>Onboarding</summary>
-
-- **HowTo** - Step-by-step guides for tasks
-- **Setup** - Environment or system setup instructions
-- **Training** - Environment or system setup instructions
-
+<ul>
+<li><b>How To</b> - Step-by-step guides</li>
+<li><b>Setup</b> - Environment or system setup instructions</li>
+<li><b>Training</b> - Training material</li>
+</ul>
 </details>
 
-<!-- Standards Section --->
 <details>
 <summary>Standards</summary>
-
-- **Code** - Coding standards, style guides
-- **Operations** - Deployment, monitoring, team operations standards
-- **Processes** - Workflows, procedures, recurring team practices
-- **Templates** - Document templates (release notes, incidents, guides, etc.)
-
+<ul>
+<li><b>Code</b> - Coding standards, style guides</li>
+<li><b>Operations</b> - Deployment, monitoring, team operations standards</li>
+<li><b>Processes</b> - Workflows, procedures, recurring team practices</li>
+<li><b>Templates</b> - Document templates (release notes, incidents, guides, etc.)</li>
+</ul>
 </details>
 
-<!-- TechnicalContext Section --->
 <details>
-<summary>TechnicalContext</summary>
-  
-- **Architecture** - System design, diagrams, high-level technical decisions
-- **Components** - Major modules, services, or libraries
-- **Configurations** - Environment variables, config files, settings
-- **Data** - Schemas, pipelines, data flows
-- **Dependencies** - External APIs, libraries, integrations
-- **Infrastructure** - Servers, cloud resources, networking
-- **Scripts** - SQL scripts (backups, restores, common tasks)
-
+<summary>Technical Context</summary>
+<ul>
+<li><b>Architecture</b> - System design, diagrams, high-level technical decisions</li>
+<li><b>Components</b> - Major modules, services, or libraries</li>
+<li><b>Configurations</b> - Environment variables, config files, settings</li>
+<li><b>Data</b> - Schemas, pipelines, data flows</li>
+<li><b>Dependencies</b> - External APIs, libraries, integrations</li>
+<li><b>Infrastructure</b> - Servers, cloud resources, networking</li>
+<li><b>Scripts</b> - SQL scripts (backups, restores, common tasks)
+</li>
+</ul>
 </details>
 
-<!-- Troubleshooting Section --->
 <details>
 <summary>Troubleshooting</summary>
-
-- **Applications** - App-level bugs or common user issues
-- **Database** - Database errors, performance issues
-- **Deployments** - CI/CD or deployment failures
-- **Services** - Service-specific failures or errors
-
+<ul>
+<li><b>Applications</b> - App-level bugs or common user issues</li>
+<li><b>Database</b> - Database errors, performance issues</li>
+<li><b>Deployments</b> - CI/CD or deployment failures</li>
+<li><b>Services</b> - Service-specific failures or errors</li>
+</li>
+</ul>
 </details>
