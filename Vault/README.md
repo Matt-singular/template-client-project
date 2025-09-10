@@ -58,6 +58,5 @@
 <li><b>Database</b> - Database errors, performance issues</li>
 <li><b>Deployments</b> - CI/CD or deployment failures</li>
 <li><b>Services</b> - Service-specific failures or errors</li>
-</li>
 </ul>
 </details>
