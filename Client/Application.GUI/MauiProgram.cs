@@ -1,10 +1,12 @@
 namespace Application.GUI;
 
+using System.Diagnostics.CodeAnalysis;
 using Common.Shared.Extensions;
 
 /// <summary>
 /// Startup logic for configuring the application pipeline.
 /// </summary>
+[ExcludeFromCodeCoverage(Justification = "Startup logic does not need to be tested")]
 public static class MauiProgram
 {
   /// <summary>

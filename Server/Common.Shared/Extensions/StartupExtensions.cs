@@ -1,12 +1,14 @@
 namespace Common.Shared.Extensions;
 
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 
 /// <summary>
-/// Common & shared startup extension methods.
+/// Common &amp; shared startup extension methods.
 /// </summary>
+[ExcludeFromCodeCoverage(Justification = "Startup logic does not need to be tested")]
 public static class StartupExtensions
 {
   /// <summary>

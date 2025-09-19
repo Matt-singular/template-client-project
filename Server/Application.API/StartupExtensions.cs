@@ -1,5 +1,6 @@
 namespace Application.API;
 
+using System.Diagnostics.CodeAnalysis;
 using Business.Core.Interfaces;
 using Business.Infrastructure.Contexts;
 using Common.Shared.Constants;
@@ -10,6 +11,7 @@ using Serilog;
 /// <summary>
 /// Startup extensions for configuring the application pipeline.
 /// </summary>
+[ExcludeFromCodeCoverage(Justification = "Startup logic does not need to be tested")]
 public static class StartupExtensions
 {
   /// <summary>

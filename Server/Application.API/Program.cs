@@ -1,15 +1,31 @@
-using Application.API;
+namespace Application.API;
 
-var builder = WebApplication.CreateBuilder(args);
+using System.Diagnostics.CodeAnalysis;
 
-// Dependency Injection
-builder.Configuration.AddApplicationSettings(builder.Environment);
-builder.Services.AddApplicationServices(builder.Configuration);
+/// <summary>
+/// Application entry point.
+/// </summary>
+[ExcludeFromCodeCoverage(Justification = "Startup logic does not need to be tested")]
+public static class Program
+{
+  /// <summary>
+  /// Main method for the application. Configures services, builds the web application, and runs the middleware pipeline.
+  /// </summary>
+  /// <param name="args">Command-line arguments.</param>
+  public static void Main(string[] args)
+  {
+    var builder = WebApplication.CreateBuilder(args);
 
-// Build app
-var app = builder.Build();
+    // Dependency Injection
+    builder.Configuration.AddApplicationSettings(builder.Environment);
+    builder.Services.AddApplicationServices(builder.Configuration);
 
-// Middleware
-app.UseApplicationPipeline();
+    // Build app
+    var app = builder.Build();
 
-app.Run();
+    // Middleware
+    app.UseApplicationPipeline();
+
+    app.Run();
+  }
+}
