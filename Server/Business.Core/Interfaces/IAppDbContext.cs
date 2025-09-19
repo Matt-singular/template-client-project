@@ -1,6 +1,7 @@
 namespace Business.Core.Interfaces;
 
 using System.Threading.Tasks;
+using Business.Core.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 
 /// <summary>
@@ -9,9 +10,10 @@ using Microsoft.EntityFrameworkCore;
 public interface IAppDbContext
 {
   /// <summary>
-  /// Gets or sets the Customers DbSet.
+  /// Gets or sets the ApplicationUsers DbSet.
   /// </summary>
-  //public DbSet<object> Customers { get; set; }
+  /// <remarks><inheritdoc cref="ApplicationUser"/></remarks>
+  public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
   /// <inheritdoc cref="DbContext"/>
   public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
