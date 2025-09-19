@@ -4,5 +4,5 @@ $applicationPath = Resolve-Path (Join-Path $scriptPath '..\..\Server\Application
 $templateFilePath = Resolve-Path (Join-Path $scriptPath 'Templates\AppsettingsDevelopmentTemplate.json') # Root\Automation\AppSettings\Templates\AppsettingsDevelopmentTemplate.json
 
 # Generate AppSettings.Development.json
-copy-item -path $templateFilePath -destination "$applicationPath\appsettings.Development.json" –confirm:$false
+copy-item -path $templateFilePath -destination "$applicationPath\appsettings.Development.json" -confirm:$false
 Write-Host "Created appsettings.Development.json" -ForegroundColor Green
