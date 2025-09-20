@@ -15,9 +15,9 @@ public static class TestHelpers
   /// <returns>A new instance of <see cref="AppDbContext"/> using the in-memory database provider.</returns>
   public static AppDbContext CreateInMemoryDbContext()
   {
-    DbContextOptions<AppDbContext> options = new DbContextOptionsBuilder<AppDbContext>()
-      .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
-      .Options;
+    string databaseName = Guid.NewGuid().ToString();
+    DbContextOptionsBuilder<AppDbContext> optionsBuilder = new();
+    DbContextOptions<AppDbContext> options = optionsBuilder.UseInMemoryDatabase(databaseName).Options;
 
     return new AppDbContext(options);
   }
@@ -29,12 +29,11 @@ public static class TestHelpers
   /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
   public static async Task<AppDbContext> AddTestSeedDataAsync(this AppDbContext dbContext)
   {
-    List<Task> tasks =
-    [
+    await Task.WhenAll(new List<Task>()
+    {
       dbContext.ApplicationUsers.AddRangeAsync(ApplicationUserTestData.GetTestUsers()),
-    ];
+    }).ConfigureAwait(false);
 
-    await Task.WhenAll(tasks).ConfigureAwait(false);
     await dbContext.SaveChangesAsync().ConfigureAwait(false);
 
     return dbContext;
