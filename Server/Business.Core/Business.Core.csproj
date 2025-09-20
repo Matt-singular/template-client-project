@@ -24,4 +24,9 @@
     <ProjectReference Include="..\Common.Shared\Common.Shared.csproj" />
   </ItemGroup>
 
+  <!-- Allows internal methods to be visible in tests -->
+  <ItemGroup>
+    <InternalsVisibleTo Include="Business.Tests" />
+  </ItemGroup>
+
 </Project>
