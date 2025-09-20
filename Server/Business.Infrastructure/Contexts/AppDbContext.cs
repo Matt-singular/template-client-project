@@ -16,6 +16,6 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
     base.OnModelCreating(modelBuilder);
-    modelBuilder.Entity<ApplicationUser>().HasData(SeedData.GetApplicationUsers());
+    modelBuilder.Entity<ApplicationUser>().HasData(SeedData.GetApplicationSystemUser());
   }
 }
