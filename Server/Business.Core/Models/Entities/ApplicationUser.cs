@@ -49,7 +49,7 @@ public class ApplicationUser : IAuditableEntity
   /// <remarks>Cannot exceed 256 characters.</remarks>
   [Required]
   [EmailAddress(ErrorMessage = "Invalid email address format.")]
-  [MaxLength(256, ErrorMessage = $"{nameof(UserName)} cannot exceed 256 characters.")]
+  [MaxLength(256, ErrorMessage = $"{nameof(Email)} cannot exceed 256 characters.")]
   public required string Email { get; set; }
 
   /// <inheritdoc/>
