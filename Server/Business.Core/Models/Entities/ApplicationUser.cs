@@ -22,9 +22,9 @@ public class ApplicationUser : IAuditableEntity
   /// <summary>
   /// Gets or sets the first name of the user.
   /// </summary>
-  /// <remarks>Cannot exceed 64 characters.</remarks>
+  /// <remarks>Cannot exceed 32 characters.</remarks>
   [Required]
-  [MaxLength(64, ErrorMessage = $"{nameof(FirstName)} cannot exceed 64 characters.")]
+  [MaxLength(32, ErrorMessage = $"{nameof(FirstName)} cannot exceed 32 characters.")]
   public required string FirstName { get; set; }
 
   /// <summary>
