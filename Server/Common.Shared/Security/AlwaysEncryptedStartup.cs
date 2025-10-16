@@ -1,5 +1,6 @@
 namespace Common.Shared.Security;
 
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using Azure.Identity;
 using Common.Shared.Constants;
@@ -12,6 +13,7 @@ using Serilog;
 /// <summary>
 /// Configures Always Encrypted for SQL connections.
 /// </summary>
+[Experimental(ApplicationConstants.Experimental)]
 public static class AlwaysEncryptedStartup
 {
   /// <summary>
