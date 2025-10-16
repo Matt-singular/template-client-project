@@ -12,7 +12,7 @@ public static class SeedData
   /// <summary>
   /// Gets the system application user for seeding.
   /// </summary>
-  /// <returns>A list containing the system application user.</returns>
+  /// <returns>The system application user.</returns>
   public static ApplicationUser GetApplicationUsers()
   {
     return new ApplicationUser()
