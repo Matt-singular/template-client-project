@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 /// <param name="options">The database context options.</param>
 public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options), IAppDbContext
 {
+  // TODO: check how EF wants you to define collations in code-first systems.
   /// <inheritdoc/>
   public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 

@@ -12,3 +12,6 @@ public static class FriendlyErrorConstants
   /// <remarks>Expects a user name to be supplied.</remarks>
   public const string UserNotFound = "{0} user not found in the database.";
 }
+// TODO: some ideas:
+// 1. We could categorise errors so that certain error messages are replaced with a generic failure error (to not leak information)
+// 2. Our logs would always include all relevant information to quickly identify failures

@@ -13,7 +13,7 @@ using Serilog;
 /// <summary>
 /// Configures Always Encrypted for SQL connections.
 /// </summary>
-[Experimental(ApplicationConstants.Experimental)]
+[Experimental(ApplicationConstants.Experimental)] // TODO: still need to implement this
 public static class AlwaysEncryptedStartup
 {
   /// <summary>

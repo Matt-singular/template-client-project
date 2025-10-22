@@ -38,6 +38,7 @@ public static class SeedData
   /// </returns>
   public static TAuditableEntity SetAuditFields<TAuditableEntity>(this TAuditableEntity entity) where TAuditableEntity : IAuditableEntity
   {
+    // TODO: don't use this method when seeding data (need to move/remove this method)
     entity.CreatedBy = 1;
     entity.UpdatedBy = 1;
     entity.CreatedOn = DateTime.UtcNow;
