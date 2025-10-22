@@ -11,9 +11,12 @@ public static class FriendlyErrorConstants
   /// </summary>
   /// <remarks>Expects a username to be supplied.</remarks>
   public const string UsernameNotFound = "{0} user not found in the database.";
+
+  /// <summary>
+  /// The error when a specific user cannot be found in the database when searching by user id.
   /// </summary>
-  /// <remarks>Expects a user name to be supplied.</remarks>
-  public const string UserNotFound = "{0} user not found in the database.";
+  public const string UserNotFound = "User not found in the database.";
+
 }
 // TODO: some ideas:
 // 1. We could categorise errors so that certain error messages are replaced with a generic failure error (to not leak information)

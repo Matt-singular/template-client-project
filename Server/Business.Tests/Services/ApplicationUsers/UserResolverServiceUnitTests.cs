@@ -4,6 +4,7 @@ using Business.Core.Interfaces.Services.ApplicationUsers;
 using Business.Core.Models.Entities;
 using Business.Core.Services.ApplicationUsers;
 using Business.Infrastructure.Contexts;
+using Business.Tests._TestHelpers.SeedData;
 using Common.Shared.Constants;
 
 /// <summary>
@@ -19,7 +20,7 @@ public class UserResolverServiceUnitTests
   /// and that its properties match the expected values defined in <see cref="SeedData.GetApplicationSystemUser"/>.
   /// </remarks>
   [Fact]
-  public async Task GetSystemUser_ShouldReturnSystemUser()
+  public async Task GetSystemUser_WhenUserConfigured_ShouldReturnSystemUser()
   {
     // Arrange
     using AppDbContext dbContext = await TestHelpers // TODO: will change how this is done.
@@ -49,6 +50,53 @@ public class UserResolverServiceUnitTests
 
     // Act
     InvalidOperationException actualError = Assert.Throws<InvalidOperationException>(userResolverService.GetSystemUser);
+
+    // Assert
+    Assert.Equal(expectedError, actualError.Message);
+  }
+
+
+  /// <summary>
+  /// Tests that <see cref="UserResolverService.GetUserById(int)"/> returns the specified user.
+  /// </summary>
+  /// <remarks>
+  /// This test verifies that the specified user is correctly retrieved from the database context
+  /// and that its properties match the expected values defined in <see cref="ApplicationUserTestData.GetTestUsers"/>.
+  /// </remarks>
+  [Fact]
+  public async Task GetUserById_WhenUserExists_ShouldReturnSpecifiedUser()
+  {
+    // Arrange
+    int expectedUserId = 2;
+    string expectedUsername = "AlanTuring";
+    using AppDbContext dbContext = await TestHelpers // TODO: will change how this is done.
+      .CreateInMemoryDbContext()
+      .AddTestSeedDataAsync();
+    UserResolverService userResolverService = new(dbContext);
+
+    // Act
+    ApplicationUser specifiedUser = Assert.IsType<ApplicationUser>(userResolverService.GetUserById(expectedUserId));
+
+    // Assert
+    Assert.Equal(expectedUserId, specifiedUser.UserId);
+    Assert.Equal(expectedUsername, specifiedUser.UserName);
+  }
+
+  /// <summary>
+  /// Tests the error handling of <see cref="UserResolverService.GetUserById(int)"/> when the user does not exist.
+  /// </summary>
+  /// <remarks>This test verifies that there is sufficient error handling should the service not find the specified user.</remarks>
+  [Fact]
+  public async Task GetUserById_WhenUserDoesNotExist_ShouldThrowException()
+  {
+    // Arrange
+    int nonExistentUserId = -1;
+    string expectedError = FriendlyErrorConstants.UserNotFound;
+    using AppDbContext dbContext = TestHelpers.CreateInMemoryDbContext(); // TODO: will change how this is done
+    UserResolverService userResolverService = new(dbContext);
+
+    // Act
+    InvalidOperationException actualError = Assert.Throws<InvalidOperationException>(() => userResolverService.GetUserById(nonExistentUserId));
 
     // Assert
     Assert.Equal(expectedError, actualError.Message);

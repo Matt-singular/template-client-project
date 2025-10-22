@@ -12,4 +12,11 @@ public interface IUserResolverService
   /// </summary>
   /// <returns>The <see cref="ApplicationUser"/> representing the system user.</returns>
   public ApplicationUser GetSystemUser();
+
+  /// <summary>
+  /// Retrieves the specified user from the application users collection.
+  /// </summary>
+  /// <param name="userId">The application user's Id to filter on.</param>
+  /// <returns>The <see cref="ApplicationUser"/> representing the specified user.</returns>
+  public ApplicationUser GetUserById(int userId);
 }

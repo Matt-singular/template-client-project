@@ -17,4 +17,15 @@ public class UserResolverService(IAppDbContext dbContext) : IUserResolverService
 
     return systemUser;
   }
+
+  /// <inheritdoc/>
+  /// <exception cref="InvalidOperationException">Thrown if the user does not exist in the database.</exception>
+  public ApplicationUser GetUserById(int userId)
+  {
+    // TODO: reconsider the exception type (perhaps add a custom db exception to better identify these issues in logs
+    ApplicationUser? user = dbContext.ApplicationUsers.FirstOrDefault(user => user.UserId == userId)
+      ?? throw new InvalidOperationException(FriendlyErrorConstants.UserNotFound);
+
+    return user;
+  }
 }

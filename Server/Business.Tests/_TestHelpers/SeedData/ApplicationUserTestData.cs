@@ -22,16 +22,16 @@ public static class ApplicationUserTestData
         UserId = 2,
         FirstName = "Alan",
         Surname = "Turing",
-        UserName = "alanturing",
-        Email = "alanturing@testmail.com"
+        UserName = "AlanTuring",
+        Email = "AlanTuring@TestMail.com"
       }.SetAuditFields(),
       new ApplicationUser
       {
         UserId = 3,
         FirstName = "Megan",
         Surname = "Smith",
-        UserName = "megansmith",
-        Email = "megansmith@testmail.com"
+        UserName = "MeganSmith",
+        Email = "MeganSmith@TestMail.com"
       }.SetAuditFields(),
     ];
   }
