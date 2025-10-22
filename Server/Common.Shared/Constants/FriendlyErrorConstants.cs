@@ -7,7 +7,10 @@ namespace Common.Shared.Constants;
 public static class FriendlyErrorConstants
 {
   /// <summary>
-  /// The error for when a user cannot be found in the database.
+  /// The error for when a specific user cannot be found in the database when searching by username.
+  /// </summary>
+  /// <remarks>Expects a username to be supplied.</remarks>
+  public const string UsernameNotFound = "{0} user not found in the database.";
   /// </summary>
   /// <remarks>Expects a user name to be supplied.</remarks>
   public const string UserNotFound = "{0} user not found in the database.";

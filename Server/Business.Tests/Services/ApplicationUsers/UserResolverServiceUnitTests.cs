@@ -43,7 +43,7 @@ public class UserResolverServiceUnitTests
   public async Task GetSystemUser_WhenUserNotConfigured_ShouldThrowException()
   {
     // Arrange
-    string expectedError = string.Format(FriendlyErrorConstants.UserNotFound, ApplicationConstants.SystemUserName);
+    string expectedError = string.Format(FriendlyErrorConstants.UsernameNotFound, ApplicationConstants.SystemUserName);
     using AppDbContext dbContext = TestHelpers.CreateInMemoryDbContext(); // TODO: will change how this is done
     UserResolverService userResolverService = new(dbContext);
 

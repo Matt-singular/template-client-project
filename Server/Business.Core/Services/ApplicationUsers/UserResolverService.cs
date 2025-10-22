@@ -13,7 +13,7 @@ public class UserResolverService(IAppDbContext dbContext) : IUserResolverService
   public ApplicationUser GetSystemUser()
   {
     ApplicationUser? systemUser = dbContext.ApplicationUsers.FirstOrDefault(user => user.UserName.Equals(ApplicationConstants.SystemUserName))
-      ?? throw new InvalidOperationException(string.Format(FriendlyErrorConstants.UserNotFound, ApplicationConstants.SystemUserName));
+      ?? throw new InvalidOperationException(string.Format(FriendlyErrorConstants.UsernameNotFound, ApplicationConstants.SystemUserName));
 
     return systemUser;
   }
