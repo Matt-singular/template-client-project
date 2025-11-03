@@ -11,4 +11,4 @@ $templatePath = Join-Paths $PSScriptRoot 'AppsettingsDevelopmentTemplate.json'
 
 # Generate AppSettings.Development.json
 Copy-Item -Path $templatePath -Destination $appsettingsPath -Confirm:$false
-Write-Success -Message "Created appsettings.Development.json"
+Write-Success -Message 'Created appsettings.Development.json'
