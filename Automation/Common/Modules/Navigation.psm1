@@ -1,9 +1,9 @@
 function Find-Up {
     param(
-        [Parameter()]
+        [Parameter(Position=0)]
         [string]$StartPath = $PSScriptRoot,
         
-        [Parameter(Mandatory)]
+        [Parameter(Mandatory, Position=1)]
         [string]$FolderName
     )
 
@@ -24,6 +24,7 @@ function Join-Paths {
     param(
         [Parameter(Mandatory, Position=0)]
         [string]$PathA,
+
         [Parameter(Position=1)]
         [string]$PathB
     )
@@ -35,4 +36,21 @@ function Join-Paths {
     return Resolve-Path (Join-Path $PathA)
 }
 
-Export-ModuleMember -Function Find-Up, Join-Paths
+function New-Folder {
+    param(
+        [Parameter(Mandatory, Position=0)]
+        [string]$FolderName
+    )
+
+    if (Test-Path -Path $FolderName) {
+        Resolve-Path $FolderName
+        Get-ChildItem -Path $FolderName | Remove-Item -Recurse -Force | Out-Null
+
+        return
+    }
+
+    New-Item -Path $FolderName -ItemType Directory -Force | Out-Null
+    Resolve-Path $FolderName
+}
+
+Export-ModuleMember -Function Find-Up, Join-Paths, New-Folder
