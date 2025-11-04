@@ -1,27 +1,22 @@
+# Modules
+$modulePath = Resolve-Path (Join-Path $PSScriptRoot '..\..\Common\Modules')
+Import-Module "$modulePath\Logging.psm1"
+Import-Module "$modulePath\Navigation.psm1"
+Import-Module "$modulePath\Coverage.psm1"
+
 # Paths
-$scriptPath = $PSScriptRoot; # Root\Automation\CodeCoverage
-$powerShellModulesPath = Resolve-Path "$scriptPath\..\PowerShellModules" # Automation\PowerShellModules
-$applicationPath = Resolve-Path (Join-Path $scriptPath '..\..\Server\') # Root\Server
-$coverageReportPath = "$scriptPath\Report" # Root\Automation\CodeCoverage\Report
-$coverageReportTestsPath = "$coverageReportPath\TestResults" # Root\Automation\CodeCoverage\Report\TestResults
-$applicationName = "Application"
+$serverPath = Resolve-Path (Find-Up -FolderName 'Server')
+$resultsPath = Join-Path $PSScriptRoot 'Results'
+$reportPath = Join-Path $PSScriptRoot 'Report'
 
-# Import PowerShell Modules
-Import-Module (Resolve-Path "$powerShellModulesPath\CodeCoverageModule.psm1")
+# Generate project code coverage
+function GenerateCodeCoverage {
+    # 1. Generate code coverage report (solution)
+    Save-CodeCoverageReport "Application" $serverPath $resultsPath $reportPath
 
-# Create code coverage folders and ensure they're clear
-New-Item -Path $coverageReportTestsPath -ItemType Directory -Force
-if (Test-Path -Path $coverageReportPath) {
-    Get-ChildItem -Path $coverageReportPath | Remove-Item -Recurse -Force
+    # 2. Generate code coverage report (summary)
+    Save-CodeCoverageSummary $resultsPath $reportPath
 }
 
-# Generate code coverage report for solution
-Save-CodeCoverageSolutionReport `
-    -Name $applicationName `
-    -Path $applicationPath
-
-# Generate code coverage summary report
-Save-CodeCoverageSummaryReport
-
-# Create Report shortcut
-Save-CodeCoverageSummaryReportShortcut -Name $applicationName
+GenerateCodeCoverage
+Write-Success 'Successfully generated code coverage reports'
