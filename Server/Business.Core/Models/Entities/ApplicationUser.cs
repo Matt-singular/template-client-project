@@ -7,9 +7,7 @@ using Business.Core.Interfaces.Entities;
 /// <summary>
 /// The Application User Entity.
 /// </summary>
-/// <remarks>
-/// This entity is used for auditing purposes and links to the users in the identity system.
-/// </remarks>
+/// <remarks>This entity is used for auditing purposes and links to the users in the identity system.</remarks>
 public class ApplicationUser : IAuditableEntity
 {
   /// <summary>

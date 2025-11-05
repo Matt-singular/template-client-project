@@ -23,7 +23,7 @@ public static class AlwaysEncryptedExtensions
   public static async Task ConfigureAlwaysEncrypted(IConfiguration configuration)
   {
     // Enable Always Encrypted for SQL connections
-    string connectionString = configuration.TryGetConnectionString(ApplicationConstants.MainDatabaseConnectionStringName);
+    string connectionString = configuration.TryGetConnectionString(DatabaseConstants.MainDatabaseConnectionStringName);
 
     RegisterAlwaysEncryptedStoreProviders();
 

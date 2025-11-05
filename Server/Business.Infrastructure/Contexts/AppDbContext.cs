@@ -17,7 +17,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
     base.OnModelCreating(modelBuilder);
-    modelBuilder.UseCollation(ApplicationConstants.MainDatabaseCollation);
+    modelBuilder.UseCollation(DatabaseConstants.MainDatabaseCollation);
     modelBuilder.Entity<ApplicationUser>().HasData(SeedData.GetApplicationSystemUser());
   }
 }
