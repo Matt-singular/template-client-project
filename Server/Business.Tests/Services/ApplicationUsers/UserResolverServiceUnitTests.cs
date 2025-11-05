@@ -6,7 +6,7 @@ using Business.Core.Services.ApplicationUsers;
 using Business.Infrastructure.Contexts;
 using Business.Tests._TestHelpers.SeedData;
 using Common.Shared.Constants;
-using Common.Shared.Models.Exceptions;
+using Common.Shared.Exceptions;
 
 /// <summary>
 /// Unit tests for the <see cref="IUserResolverService"/>.

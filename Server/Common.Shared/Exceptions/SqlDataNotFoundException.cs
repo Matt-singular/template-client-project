@@ -1,4 +1,4 @@
-namespace Common.Shared.Models.Exceptions;
+namespace Common.Shared.Exceptions;
 
 using System;
 

@@ -4,7 +4,7 @@ using Business.Core.Interfaces;
 using Business.Core.Interfaces.Services.ApplicationUsers;
 using Business.Core.Models.Entities;
 using Common.Shared.Constants;
-using Common.Shared.Models.Exceptions;
+using Common.Shared.Exceptions;
 
 /// <inheritdoc cref="IUserResolverService"/>
 public class UserResolverService(IAppDbContext dbContext) : IUserResolverService

@@ -1,10 +1,9 @@
-namespace Common.Shared.Security;
+namespace Common.Shared.Extensions;
 
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using Azure.Identity;
 using Common.Shared.Constants;
-using Common.Shared.Extensions;
 using Microsoft.Data.SqlClient;
 using Microsoft.Data.SqlClient.AlwaysEncrypted.AzureKeyVaultProvider;
 using Microsoft.Extensions.Configuration;
@@ -15,7 +14,7 @@ using Serilog;
 /// </summary>
 [Experimental(ApplicationConstants.Experimental)] // TODO: still need to implement this
 [ExcludeFromCodeCoverage(Justification = "Experimental code - not yet in use")]
-public static class AlwaysEncryptedStartup
+public static class AlwaysEncryptedExtensions
 {
   /// <summary>
   /// Configures Always Encrypted for SQL connections.
