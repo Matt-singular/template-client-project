@@ -13,7 +13,7 @@ public static class SeedData
   /// Gets the system application user for seeding.
   /// </summary>
   /// <returns>The system application user.</returns>
-  public static ApplicationUser GetApplicationUsers()
+  public static ApplicationUser GetApplicationSystemUser()
   {
     return new ApplicationUser()
     {
@@ -21,8 +21,12 @@ public static class SeedData
       FirstName = ApplicationConstants.SystemUserName,
       Surname = ApplicationConstants.SystemUserName,
       UserName = ApplicationConstants.SystemUserName,
-      Email = $"{ApplicationConstants.SystemUserName}@Application.com"
-    }.SetAuditFields();
+      Email = $"{ApplicationConstants.SystemUserName}@Application.com",
+      CreatedBy = 1,
+      UpdatedBy = 1,
+      CreatedOn = new DateTime(2025, 9, 20),
+      UpdatedOn = new DateTime(2025, 9, 20),
+    };
   }
 
   /// <summary>

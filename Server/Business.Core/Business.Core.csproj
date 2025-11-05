@@ -14,11 +14,19 @@
   <ItemGroup>
     <Folder Include="Models\Extensions\" />
     <Folder Include="Models\Lookups\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common.Shared\Common.Shared.csproj" />
+  </ItemGroup>
+
+  <!-- Allows internal methods to be visible in tests -->
+  <ItemGroup>
+    <InternalsVisibleTo Include="Business.Tests" />
   </ItemGroup>
 
 </Project>

@@ -20,6 +20,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
     <PackageReference Include="xunit.runner.visualstudio">
       <PrivateAssets>all</PrivateAssets>
@@ -29,7 +30,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Application.API\Application.API.csproj" />
+    <ProjectReference Include="..\Business.Core\Business.Core.csproj" />
+    <ProjectReference Include="..\Business.Infrastructure\Business.Infrastructure.csproj" />
+    <ProjectReference Include="..\Common.Shared\Common.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="_TestHelpers\Mocks\" />
   </ItemGroup>
 
 </Project>
