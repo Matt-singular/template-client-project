@@ -12,7 +12,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Entities\" />
     <Folder Include="Models\Extensions\" />
     <Folder Include="Models\Lookups\" />
     <Folder Include="Services\" />

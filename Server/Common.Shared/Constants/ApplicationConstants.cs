@@ -9,4 +9,9 @@ public static class ApplicationConstants
   /// The name of the main database connection string.
   /// </summary>
   public const string MainDatabaseConnectionStringName = "Main";
+
+  /// <summary>
+  /// The username used for system-generated actions.
+  /// </summary>
+  public const string SystemUserName = "SYSTEM";
 }
