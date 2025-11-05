@@ -6,6 +6,7 @@ using Business.Core.Services.ApplicationUsers;
 using Business.Infrastructure.Contexts;
 using Business.Tests._TestHelpers.SeedData;
 using Common.Shared.Constants;
+using Common.Shared.Models.Exceptions;
 
 /// <summary>
 /// Unit tests for the <see cref="IUserResolverService"/>.
@@ -23,9 +24,7 @@ public class UserResolverServiceUnitTests
   public async Task GetSystemUser_WhenUserConfigured_ShouldReturnSystemUser()
   {
     // Arrange
-    using AppDbContext dbContext = await TestHelpers // TODO: will change how this is done.
-      .CreateInMemoryDbContext()
-      .AddTestSeedDataAsync();
+    using AppDbContext dbContext = await TestHelpers.CreateInMemoryDbContext().AddTestSeedDataAsync();
     UserResolverService userResolverService = new(dbContext);
 
     // Act
@@ -45,11 +44,11 @@ public class UserResolverServiceUnitTests
   {
     // Arrange
     string expectedError = string.Format(FriendlyErrorConstants.UsernameNotFound, ApplicationConstants.SystemUserName);
-    using AppDbContext dbContext = TestHelpers.CreateInMemoryDbContext(); // TODO: will change how this is done
+    using AppDbContext dbContext = TestHelpers.CreateInMemoryDbContext();
     UserResolverService userResolverService = new(dbContext);
 
     // Act
-    InvalidOperationException actualError = Assert.Throws<InvalidOperationException>(userResolverService.GetSystemUser);
+    SqlDataNotFoundException actualError = Assert.Throws<SqlDataNotFoundException>(userResolverService.GetSystemUser);
 
     // Assert
     Assert.Equal(expectedError, actualError.Message);
@@ -69,9 +68,7 @@ public class UserResolverServiceUnitTests
     // Arrange
     int expectedUserId = 2;
     string expectedUsername = "AlanTuring";
-    using AppDbContext dbContext = await TestHelpers // TODO: will change how this is done.
-      .CreateInMemoryDbContext()
-      .AddTestSeedDataAsync();
+    using AppDbContext dbContext = await TestHelpers.CreateInMemoryDbContext().AddTestSeedDataAsync();
     UserResolverService userResolverService = new(dbContext);
 
     // Act
@@ -92,11 +89,11 @@ public class UserResolverServiceUnitTests
     // Arrange
     int nonExistentUserId = -1;
     string expectedError = FriendlyErrorConstants.UserNotFound;
-    using AppDbContext dbContext = TestHelpers.CreateInMemoryDbContext(); // TODO: will change how this is done
+    using AppDbContext dbContext = TestHelpers.CreateInMemoryDbContext();
     UserResolverService userResolverService = new(dbContext);
 
     // Act
-    InvalidOperationException actualError = Assert.Throws<InvalidOperationException>(() => userResolverService.GetUserById(nonExistentUserId));
+    SqlDataNotFoundException actualError = Assert.Throws<SqlDataNotFoundException>(() => userResolverService.GetUserById(nonExistentUserId));
 
     // Assert
     Assert.Equal(expectedError, actualError.Message);
