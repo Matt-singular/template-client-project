@@ -13,6 +13,7 @@
     <OutputType>Exe</OutputType>
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
+    <RunSettingsFilePath>$(MSBuildThisFileDirectory)\coverlet.runsettings</RunSettingsFilePath>
   </PropertyGroup>
 
   <ItemGroup>

@@ -14,6 +14,7 @@ using Serilog;
 /// Configures Always Encrypted for SQL connections.
 /// </summary>
 [Experimental(ApplicationConstants.Experimental)] // TODO: still need to implement this
+[ExcludeFromCodeCoverage(Justification = "Experimental code - not yet in use")]
 public static class AlwaysEncryptedStartup
 {
   /// <summary>

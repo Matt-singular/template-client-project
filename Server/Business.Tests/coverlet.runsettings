@@ -8,7 +8,7 @@
           <Include></Include>
           <Exclude>
             <!-- [Assembly Specification]Namespace Specification* -->
-            [Business.Infrastructure].Migrations*,
+            [Business.Infrastructure]Business.Infrastructure.Migrations*
           </Exclude>
           <SingleHit>true</SingleHit>
           <SkipAutoProps>true</SkipAutoProps>
