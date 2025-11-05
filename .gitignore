@@ -428,7 +428,8 @@ Vault/.trash
 # Code Coverage
 # ===============================================
 
-Automation/CodeCoverage/Report/*
+Automation/Standards/Coverage/Results/*
+Automation/Standards/Coverage/Report/*
 
 # ===============================================
 # .NET Project
