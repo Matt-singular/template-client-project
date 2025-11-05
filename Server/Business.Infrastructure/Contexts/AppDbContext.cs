@@ -2,6 +2,7 @@ namespace Business.Infrastructure.Contexts;
 
 using Business.Core.Interfaces;
 using Business.Core.Models.Entities;
+using Common.Shared.Constants;
 using Microsoft.EntityFrameworkCore;
 
 /// <inheritdoc cref="IAppDbContext"/>
@@ -9,7 +10,6 @@ using Microsoft.EntityFrameworkCore;
 /// <param name="options">The database context options.</param>
 public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options), IAppDbContext
 {
-  // TODO: check how EF wants you to define collations in code-first systems.
   /// <inheritdoc/>
   public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
@@ -17,6 +17,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
     base.OnModelCreating(modelBuilder);
+    modelBuilder.UseCollation(ApplicationConstants.MainDatabaseCollation);
     modelBuilder.Entity<ApplicationUser>().HasData(SeedData.GetApplicationSystemUser());
   }
 }
