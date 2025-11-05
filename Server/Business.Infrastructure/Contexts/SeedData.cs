@@ -1,6 +1,5 @@
 namespace Business.Infrastructure.Contexts;
 
-using Business.Core.Interfaces.Entities;
 using Business.Core.Models.Entities;
 using Common.Shared.Constants;
 
@@ -27,23 +26,5 @@ public static class SeedData
       CreatedOn = new DateTime(2025, 9, 20),
       UpdatedOn = new DateTime(2025, 9, 20),
     };
-  }
-
-  /// <summary>
-  /// Sets the audit fields for an auditable entity.
-  /// </summary>
-  /// <typeparam name="TAuditableEntity">The type of the entity implementing <see cref="IAuditableEntity"/>.</typeparam>
-  /// <param name="entity">The entity to set audit fields for.</param>
-  /// <returns>The entity with audit fields set to default values.
-  /// </returns>
-  public static TAuditableEntity SetAuditFields<TAuditableEntity>(this TAuditableEntity entity) where TAuditableEntity : IAuditableEntity
-  {
-    // TODO: don't use this method when seeding data (need to move/remove this method)
-    entity.CreatedBy = 1;
-    entity.UpdatedBy = 1;
-    entity.CreatedOn = DateTime.UtcNow;
-    entity.UpdatedOn = DateTime.UtcNow;
-
-    return entity;
   }
 }
