@@ -5,7 +5,7 @@ Each project has a distinct purpose and dependency direction, making the codebas
 
 ---
 
-## 📂 Solution Layout
+## Solution Layout
 
 **Application.API** → Web API controllers, request/response DTOs
 
@@ -21,7 +21,7 @@ Each project has a distinct purpose and dependency direction, making the codebas
 
 ---
 
-## 🏗️ Project Responsibilities
+## Project Responsibilities
 
 ### `Application.API`
 - ASP.NET Core Web API layer.
@@ -90,7 +90,7 @@ None (used by any layer that needs it, but itself doesn’t reference other laye
 
 ---
 
-## 🔄 Flow of Dependencies
+## Flow of Dependencies
 
 At runtime, the flow typically looks like this:
 
@@ -108,7 +108,7 @@ At runtime, the flow typically looks like this:
 
 ---
 
-## 🎯 Dependency Rule
+## Dependency Rule
 
 All dependencies **point inward**:
 
