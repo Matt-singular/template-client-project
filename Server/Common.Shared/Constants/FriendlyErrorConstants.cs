@@ -13,9 +13,14 @@ public static class FriendlyErrorConstants
   public const string UsernameNotFound = "{0} user not found in the database.";
 
   /// <summary>
-  /// The error when a specific user cannot be found in the database when searching by user id.
+  /// The error when a specific user cannot be found in the database when searching by user Id.
   /// </summary>
   public const string UserNotFound = "User not found in the database.";
+
+  /// <summary>
+  /// The error when the session user cannot be determined.
+  /// </summary>
+  public const string UserSessionNotFound = "User session not found.";
 
 }
 // TODO: some ideas:
