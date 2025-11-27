@@ -22,7 +22,7 @@ public static class ApplicationUserTestData
         UserId = 2,
         FirstName = "Alan",
         Surname = "Turing",
-        UserName = "AlanTuring",
+        Username = "AlanTuring",
         Email = "AlanTuring@TestMail.com"
       }.SetAuditFields(),
       new ApplicationUser
@@ -30,7 +30,7 @@ public static class ApplicationUserTestData
         UserId = 3,
         FirstName = "Megan",
         Surname = "Smith",
-        UserName = "MeganSmith",
+        Username = "MeganSmith",
         Email = "MeganSmith@TestMail.com"
       }.SetAuditFields(),
     ];
