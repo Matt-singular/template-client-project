@@ -37,8 +37,8 @@ public static class UserQueryableExtensions
       })
       .Select(entityWithAudit => selector(
         entityWithAudit.Entity,
-        entityWithAudit.CreatedByUser != null ? entityWithAudit.CreatedByUser.UserName : null,
-        entityWithAudit.UpdatedByUser != null ? entityWithAudit.UpdatedByUser.UserName : null
+        entityWithAudit.CreatedByUser != null ? entityWithAudit.CreatedByUser.Username : null,
+        entityWithAudit.UpdatedByUser != null ? entityWithAudit.UpdatedByUser.Username : null
       ));
   }
 }

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using Business.Core.Interfaces.Entities;
 
 /// <summary>
-/// The Application User Entity.
+/// The application user entity.
 /// </summary>
 /// <remarks>This entity is used for auditing purposes and links to the users in the identity system.</remarks>
 public class ApplicationUser : IAuditableEntity
@@ -38,8 +38,8 @@ public class ApplicationUser : IAuditableEntity
   /// </summary>
   /// <remarks>Cannot exceed 32 characters.</remarks>
   [Required]
-  [MaxLength(32, ErrorMessage = $"{nameof(UserName)} cannot exceed 32 characters.")]
-  public required string UserName { get; set; }
+  [MaxLength(32, ErrorMessage = $"{nameof(Username)} cannot exceed 32 characters.")]
+  public required string Username { get; set; }
 
   /// <summary>
   /// Gets or sets the email address for the user.
@@ -47,8 +47,14 @@ public class ApplicationUser : IAuditableEntity
   /// <remarks>Cannot exceed 256 characters.</remarks>
   [Required]
   [EmailAddress(ErrorMessage = "Invalid email address format.")]
-  [MaxLength(256, ErrorMessage = $"{nameof(UserName)} cannot exceed 256 characters.")]
+  [MaxLength(256, ErrorMessage = $"{nameof(Username)} cannot exceed 256 characters.")]
   public required string Email { get; set; }
+
+  /// <summary>
+  /// Gets or sets the active status of the user.
+  /// </summary>
+  /// <remarks>Users who are inactive will not be able to access or perform operations on the system.</remarks>
+  public bool IsActive { get; set; } = true;
 
   /// <inheritdoc/>
   public int CreatedBy { get; set; }

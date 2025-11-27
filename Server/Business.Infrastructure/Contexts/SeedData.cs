@@ -19,7 +19,7 @@ public static class SeedData
       UserId = 1,
       FirstName = ApplicationConstants.SystemUserName,
       Surname = ApplicationConstants.SystemUserName,
-      UserName = ApplicationConstants.SystemUserName,
+      Username = ApplicationConstants.SystemUserName,
       Email = $"{ApplicationConstants.SystemUserName}@Application.com",
       CreatedBy = 1,
       UpdatedBy = 1,
