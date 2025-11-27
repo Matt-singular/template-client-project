@@ -1,9 +1,9 @@
 namespace Business.Tests.Services.ApplicationUsers;
 
-using Business.Core.Interfaces.Services.ApplicationUsers;
+using Business.Core.Domains.ApplicationUsers.Resolver;
 using Business.Core.Models.Entities;
-using Business.Core.Services.ApplicationUsers;
 using Business.Infrastructure.Contexts;
+using Business.Tests._TestHelpers.Mocks;
 using Business.Tests._TestHelpers.SeedData;
 using Common.Shared.Constants;
 using Common.Shared.Exceptions;
@@ -13,6 +13,14 @@ using Common.Shared.Exceptions;
 /// </summary>
 public class UserResolverServiceUnitTests
 {
+  private static UserResolverService InstantiateUserResolverService(AppDbContext dbContext)
+  {
+    MockUserSessionService mockUserSessionService = new();
+    UserResolverService userResolverService = new(dbContext, mockUserSessionService);
+
+    return userResolverService;
+  }
+
   /// <summary>
   /// Tests that <see cref="UserResolverService.GetSystemUser"/> returns the expected system user.
   /// </summary>
@@ -25,14 +33,14 @@ public class UserResolverServiceUnitTests
   {
     // Arrange
     using AppDbContext dbContext = await TestHelpers.CreateInMemoryDbContext().AddTestSeedDataAsync();
-    UserResolverService userResolverService = new(dbContext);
+    UserResolverService userResolverService = InstantiateUserResolverService(dbContext);
 
     // Act
     ApplicationUser systemUser = Assert.IsType<ApplicationUser>(userResolverService.GetSystemUser());
 
     // Assert
     Assert.Equal(1, systemUser.UserId);
-    Assert.Equal(ApplicationConstants.SystemUserName, systemUser.UserName);
+    Assert.Equal(ApplicationConstants.SystemUserName, systemUser.Username);
   }
 
   /// <summary>
@@ -45,7 +53,7 @@ public class UserResolverServiceUnitTests
     // Arrange
     string expectedError = string.Format(FriendlyErrorConstants.UsernameNotFound, ApplicationConstants.SystemUserName);
     using AppDbContext dbContext = TestHelpers.CreateInMemoryDbContext();
-    UserResolverService userResolverService = new(dbContext);
+    UserResolverService userResolverService = InstantiateUserResolverService(dbContext);
 
     // Act
     SqlDataNotFoundException actualError = Assert.Throws<SqlDataNotFoundException>(userResolverService.GetSystemUser);
@@ -69,14 +77,14 @@ public class UserResolverServiceUnitTests
     int expectedUserId = 2;
     string expectedUsername = "AlanTuring";
     using AppDbContext dbContext = await TestHelpers.CreateInMemoryDbContext().AddTestSeedDataAsync();
-    UserResolverService userResolverService = new(dbContext);
+    UserResolverService userResolverService = InstantiateUserResolverService(dbContext);
 
     // Act
     ApplicationUser specifiedUser = Assert.IsType<ApplicationUser>(userResolverService.GetUserById(expectedUserId));
 
     // Assert
     Assert.Equal(expectedUserId, specifiedUser.UserId);
-    Assert.Equal(expectedUsername, specifiedUser.UserName);
+    Assert.Equal(expectedUsername, specifiedUser.Username);
   }
 
   /// <summary>
@@ -90,7 +98,7 @@ public class UserResolverServiceUnitTests
     int nonExistentUserId = -1;
     string expectedError = FriendlyErrorConstants.UserNotFound;
     using AppDbContext dbContext = TestHelpers.CreateInMemoryDbContext();
-    UserResolverService userResolverService = new(dbContext);
+    UserResolverService userResolverService = InstantiateUserResolverService(dbContext);
 
     // Act
     SqlDataNotFoundException actualError = Assert.Throws<SqlDataNotFoundException>(() => userResolverService.GetUserById(nonExistentUserId));
