@@ -1,6 +1,8 @@
 namespace Application.API;
 
 using System.Diagnostics.CodeAnalysis;
+using Application.API.Services;
+using Business.Core.Domains.ApplicationUsers.Session;
 using Business.Core.Interfaces;
 using Business.Infrastructure.Contexts;
 using Common.Shared.Constants;
@@ -27,7 +29,8 @@ public static class StartupExtensions
       .AddApplicationDataServices(configuration)
       .AddCommonLogging(configuration)
       .AddCommonSharedServices()
-      .AddApplicationModelServices(configuration)
+      .AddApplicationDomainServices(configuration)
+      .AddSharedDomainServices(configuration)
       .AddApplicationSwagger();
 
     return services;
@@ -54,21 +57,34 @@ public static class StartupExtensions
   /// <returns>The service collection with data services registered.</returns>
   private static IServiceCollection AddApplicationDataServices(this IServiceCollection services, IConfiguration configuration)
   {
-    string mainDatabase = configuration.TryGetConnectionString(ApplicationConstants.MainDatabaseConnectionStringName);
+    string mainDatabase = configuration.TryGetConnectionString(DatabaseConstants.MainDatabaseConnectionStringName);
     services.AddDbContext<IAppDbContext, AppDbContext>(options => options.UseSqlServer(mainDatabase));
 
     return services;
   }
 
   /// <summary>
-  /// Adds model-related services and configuration to the service collection.
+  /// Adds application domain services and configuration to the service collection.
   /// </summary>
   /// <param name="services">The application's service collection.</param>
   /// <param name="configuration">The application's configuration.</param>
-  /// <returns>The service collection with model services registered.</returns>
-  private static IServiceCollection AddApplicationModelServices(this IServiceCollection services, IConfiguration configuration)
+  /// <returns>The service collection with application domain services registered.</returns>
+  private static IServiceCollection AddApplicationDomainServices(this IServiceCollection services, IConfiguration configuration)
   {
     //services.Configure<object>(configuration.GetSection("ConfigKeyName")); // Example
+
+    return services;
+  }
+
+  /// <summary>
+  /// Adds shared domain services to the service collection.
+  /// </summary>
+  /// <param name="services">The application's service collection.</param>
+  /// <param name="configuration">The application's configuration.</param>
+  /// <returns>The service collection with shared domain services registered.</returns>
+  private static IServiceCollection AddSharedDomainServices(this IServiceCollection services, IConfiguration configuration)
+  {
+    services.AddScoped<IUserSessionService, UserSessionService>();
 
     return services;
   }

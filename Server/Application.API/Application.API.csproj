@@ -17,8 +17,8 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Endpoints\" />
-  </ItemGroup>
+		<Folder Include="Endpoints\" />
+	</ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Business.Core\Business.Core.csproj" />
