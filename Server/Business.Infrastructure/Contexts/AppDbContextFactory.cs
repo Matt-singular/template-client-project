@@ -34,12 +34,12 @@ public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
   private static string GetConnectionString()
   {
     IConfigurationRoot configuration = new ConfigurationBuilder()
-      .SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "..", "Application.API"))
+      .SetBasePath(PathConstants.ApplicationAPI)
       .AddJsonFile("appsettings.json", optional: true)
       .AddJsonFile("appsettings.Development.json", optional: true)
       .AddEnvironmentVariables()
       .Build();
 
-    return configuration.TryGetConnectionString(ApplicationConstants.MainDatabaseConnectionStringName);
+    return configuration.TryGetConnectionString(DatabaseConstants.MainDatabaseConnectionStringName);
   }
 }

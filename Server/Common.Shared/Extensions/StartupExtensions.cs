@@ -1,6 +1,7 @@
 namespace Common.Shared.Extensions;
 
 using System.Diagnostics.CodeAnalysis;
+using Common.Shared.Constants;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
@@ -21,11 +22,10 @@ public static class StartupExtensions
     this IConfigurationBuilder config,
     string environmentName)
   {
-    var assemblyLocation = Path.GetDirectoryName(typeof(Startup).Assembly.Location);
-    var appSettingsPath = Path.Combine(assemblyLocation!, "appsettings.Common.json");
+    var appSettingsPath = Path.Combine(PathConstants.CommonShared, "appsettings.Common.json");
     config.AddJsonFile(appSettingsPath, optional: true, reloadOnChange: true).AddUserSecrets<Startup>(optional: true, reloadOnChange: true);
 
-    var appSettingsEnvironmentPath = Path.Combine(assemblyLocation!, $"appsettings.Common.{environmentName}.json");
+    var appSettingsEnvironmentPath = Path.Combine(PathConstants.CommonShared, $"appsettings.Common.{environmentName}.json");
     config.AddJsonFile(appSettingsEnvironmentPath, optional: true, reloadOnChange: true);
 
     return config;

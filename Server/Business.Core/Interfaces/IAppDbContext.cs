@@ -15,6 +15,6 @@ public interface IAppDbContext
   /// <remarks><inheritdoc cref="ApplicationUser"/></remarks>
   public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
-  /// <inheritdoc cref="DbContext"/>
+  /// <inheritdoc cref="DbContext.SaveChangesAsync(CancellationToken)"/>
   public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

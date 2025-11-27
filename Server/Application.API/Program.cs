@@ -9,11 +9,13 @@ using System.Diagnostics.CodeAnalysis;
 public static class Program
 {
   /// <summary>
-  /// Main method for the application. Configures services, builds the web application, and runs the middleware pipeline.
+  /// Main method for the application.
   /// </summary>
+  /// <remarks>Configures services, builds the web application, and runs the middleware pipeline.</remarks>
   /// <param name="args">Command-line arguments.</param>
   public static void Main(string[] args)
   {
+    // Instantiate the web app's builder
     var builder = WebApplication.CreateBuilder(args);
 
     // Dependency Injection
@@ -26,6 +28,7 @@ public static class Program
     // Middleware
     app.UseApplicationPipeline();
 
+    // Run the application
     app.Run();
   }
 }
