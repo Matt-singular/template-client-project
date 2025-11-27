@@ -20,4 +20,9 @@ public static class DatabaseConstants
   /// </list>
   /// </summary>
   public const string MainDatabaseCollation = "SQL_Latin1_General_CP1_CI_AS";
+
+  /// <summary>
+  /// The database column type for storing date and time with higher precision.
+  /// </summary>
+  public const string DateTimeColumn = "datetime2";
 }
