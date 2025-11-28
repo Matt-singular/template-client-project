@@ -23,7 +23,8 @@
   <ItemGroup>
     <Folder Include="Extensions\" />
     <Folder Include="Configurations\" />
-    <Folder Include="Migrations\Customers\" />
+    <Folder Include="Migrations\Customers\ClientA\" />
+    <Folder Include="Migrations\Customers\ClientB\" />
     <Folder Include="Migrations\Product\" />
   </ItemGroup>
 

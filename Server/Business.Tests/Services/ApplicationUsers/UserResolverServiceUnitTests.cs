@@ -9,7 +9,7 @@ using Common.Shared.Constants;
 using Common.Shared.Exceptions;
 
 /// <summary>
-/// Unit tests for the <see cref="IUserResolverService"/>.
+/// Unit tests for the <see cref="IUserResolverService"/> logic.
 /// </summary>
 public class UserResolverServiceUnitTests
 {
