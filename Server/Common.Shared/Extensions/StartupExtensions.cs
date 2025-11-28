@@ -77,7 +77,7 @@ public static class StartupExtensions
   /// Gets a connection string by name and throws an exception if not found or empty.
   /// </summary>
   /// <param name="configuration">The application's configuration.</param>
-  /// <param name="name">The connection strign name.</param>
+  /// <param name="name">The connection string name.</param>
   /// <returns>The connection string.</returns>
   public static string TryGetConnectionString(this IConfiguration configuration, string name)
   {
